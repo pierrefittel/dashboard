@@ -46,6 +46,11 @@ body
                 filter: invert(100%)
             &:hover
                 background-color: lighten($jet, 20%)
+            &:active
+                background-color: lighten($jet, 60%)
+                color: $jet
+                img
+                    filter: invert(20%)
         #logo
             font-size: larger
             padding: 24px
@@ -56,10 +61,186 @@ body
         #communities
             margin-bottom: 32px
     .header
+        padding: 24px
         grid-area: 1 / 2 / 2 / 3
         background-color: $white
         z-index: 1
         box-shadow: 1px 1px 3px darken($gainsboro, 20%)
+        display: grid
+        grid-template: auto auto / 1fr auto auto auto
+        gap: 16px
+        font-weight: bold
+        > div
+            display: flex
+            align-content: center
+            align-items: center
+            gap: 10px
+            input
+                font-size: larger
+                width: 90%
+                max-width: 700px
+                background-color: lighten($jet, 70%)
+                border: none
+                border-radius: 12px
+                padding: 2px
+                text-align: center
+                &:hover, &:focus
+                    outline: none !important
+                    border: solid 1px $jet
+            button
+                height: 35px
+                width: 100px
+                font-weight: bold
+                color: $white
+                background-color: $indigo-dye
+                border: none
+                border-radius: 16px
+                &:hover
+                    background-color: lighten($indigo-dye, 20%)
+                &:active
+                    background-color: $white
+                    border: solid 1px $jet
+                    color: $jet
+        #alert
+            display: flex
+            justify-content: flex-end
+        #user-picture
+            display: flex
+            justify-content: center
+        #user-picture > img
+            height: 60px
+            width: 60px
+            border-radius: 50%
+            object-fit: fill
+        #greeting
+            > img
+                height: 80px
+                width: 80px
+                border-radius: 50%
+                object-fit: fill
+        .user-greeting
+            :first-child
+                font-size: smaller
+                ~ div
+                    font-size: larger
     .dashboard
         grid-area: 2 / 2 / 3 / 3
         background-color: $gainsboro
+        display: grid
+        grid-template: auto auto / 1fr auto
+        gap: 24px
+        padding: 24px
+        .title
+            font-weight: bold
+        .projects
+            grid-area: 1 / 1 / 3 / 2
+            > div 
+                display: grid
+                gap: 16px
+                grid-template-rows: repeat(2, 1fr)
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+                > .project-item
+                    padding: 24px
+                    border-radius : 6px
+                    border-left: solid 6px $indigo-dye
+                    background-color: $white
+                    z-index: 1
+                    box-shadow: 1px 1px 3px darken($gainsboro, 20%)
+                    display: grid
+                    grid-template-rows: auto auto 30px
+                    gap: 12px
+                    overflow: hidden
+                    transition-duration: .5s
+                    h2
+                        font-weight: bold
+                    p
+                        font-size: .9em
+                        color: lighten($jet, 20%)
+                    .actions
+                        display: flex
+                        align-items: bottom
+                        justify-content: flex-end
+                        gap: 18px
+                        .action
+                            width: 30px
+                            height: 30px
+                            display: flex
+                            justify-content: center
+                            padding: 2px
+                            border-radius: 50%
+                            &:hover
+                                background-color: $jet
+                                transition-duration: .5s
+                                img
+                                    filter: invert(100%) 
+                    &:hover
+                        box-shadow: 2px 2px 4px darken($gainsboro, 40%)
+        .announcements
+            grid-area: 1 / 2 / 2 / 3
+            .title
+                margin-bottom: 32px
+                ~ div
+                    display: grid
+                    resize: both
+                    border-radius: 6px
+                    background-color: $white
+                    grid-template-rows: repeat(auto-fit, 1fr)
+                    grid-template-columns: minmax(20vw, 300px)
+                    box-shadow: 1px 1px 3px darken($gainsboro, 20%)
+                    .announcement
+                        margin: 12px
+                        margin-bottom: 0px
+                        padding: 12px
+                        padding-top: 0px
+                        border-bottom: solid 1px lighten($jet, 40%)
+                        h3
+                            font-size: .9em
+                            font-weight: bold
+                            line-height: 24px
+                        p
+                            font-size: .8em
+                            color: lighten($jet, 20%)
+                        &:last-of-type
+                            border-bottom: none
+        .trending
+            grid-area: 2 / 2 / 3 / 3
+            .title
+                margin-bottom: 32px
+                ~ div
+                    display: grid
+                    resize: both
+                    border-radius: 6px
+                    background-color: $white
+                    grid-template-rows: repeat(auto-fit, 1fr)
+                    grid-template-columns: minmax(20vw, 300px)
+                    box-shadow: 1px 1px 3px darken($gainsboro, 20%)
+                    .trend
+                        padding: 12px
+                        display: grid
+                        grid-template: auto auto / auto 1fr
+                        transition-duration: .5s
+                        .user-picture
+                            grid-area: 1 / 1 / 3 / 2
+                            display: flex
+                            justify-content: center
+                            margin-left: 22px
+                            margin-right: 28px
+                        .user-picture > img
+                            height: 60px
+                            width: 60px
+                            border-radius: 50%
+                            object-fit: fill
+                        .user-id
+                            grid-area: 1 / 2 / 2 / 3
+                            font-weight: bold
+                            font-size: .9em
+                            vertical-align: bottom
+                            display: flex
+                            align-items: flex-end
+                            margin-bottom: 6px
+                        .user-description
+                            grid-area: 2 / 2 / 3 / 3
+                            font-size: .8em
+                            color: lighten($jet, 20%)
+                        &:hover
+                            background-color: lighten($jet, 70%)
